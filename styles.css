@@ -41,8 +41,10 @@ body, html {
 
 .text-box h1 {
   color: red; /* Example: sets the heading text color to blue */
+  font-size: 60px;
 }
 
 .text-box p {
   color: purple; /* Example: sets the paragraph text color to dark gray */
+  font-size: 30px;
 }
