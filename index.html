@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Celebration</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: url('jellybeans.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .text-box {
+            background-color: rgba(240, 240, 240, 0.8);
+            padding: 10px;
+            border-radius: 100px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        #birthdayButton {
+            display: block;
+            margin: 20px auto;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .flying-cat, .flying-cat-bottom, .flying-cat-middle, .flying-cat-tmiddle {
+            position: fixed;
+            width: 100px;
+            animation: flyRight 10s infinite linear;
+        }
+        .flying-cat {
+            top: 20px;
+        }
+        .flying-cat-bottom {
+            bottom: 20px;
+        }
+        .flying-cat-middle {
+            left: 68%;
+            transform: translateX(-50%);
+            top: 68%;
+        }
+    
+        .flying-cat-tmiddle {
+            left: 25%;
+            transform: translateX(-50%);
+            top: 25%;
+        }
+        @keyframes flyRight {
+            from { left: -120px; }
+            to { left: 100%; }
+        }
+        @keyframes flyLeft {
+            from { right: -120px; }
+            to { right: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="text-box">
+            <h1>Welcome to My Website</h1>
+            <p>I am Mohammed Fatehi.</p>
+        </div>
+        <button id="birthdayButton">Click Me!</button> <!-- Button moved inside .content -->
+        <div id="countdownTimer"></div>
+    </div>
+    <img src="flying-cat.png" alt="Flying Cat" class="flying-cat">
+    <img src="flying-cat.png" alt="Flying Cat" class="flying-cat-bottom">
+    <img src="flying-cat.png" alt="Flying Cat" class="flying-cat-middle">
+    <img src="flying-cat.png" alt="Flying Cat" class="flying-cat-tmiddle">
+    <audio id="happyBirthdayAudio" style="display:none;">
+        <source src="hbs.mp3" type="audio/mp3">
+    </audio>
+    <script>
+        // Your JavaScript code here
+        document.addEventListener('DOMContentLoaded', function() {
+            birthdayButton.addEventListener('click', function() {
+      happyBirthdayAudio.play();
+      let timeLeft = 22;
+      countdownTimer.innerText = 'Countdown: ' + timeLeft;
+
+      const timerId = setInterval(() => {
+          timeLeft--;
+          countdownTimer.innerText = 'Countdown: ' + timeLeft;
+          if (timeLeft <= 0) {
+              clearInterval(timerId);
+              countdownTimer.innerText = 'Happy Birthday Burhanuddin!';
+          }
+      }, 1000);
+  });
+});
+        
+        </script>
+</body>
+</html>
